@@ -1,0 +1,44 @@
+@extends('layouts.base')
+
+@section('title' , 'Services')
+
+@section('breadcrumb')
+    <li>Services</li>
+@endsection
+
+@section('footerConcat' , true)
+
+
+@section('body')
+    <!-- About Section  -->
+    <div id="about-2" class="about-section section-padding pb-60">
+        <div class="container">
+            <div class="row gx-5">
+                @foreach($navbar_services as $navbar_service)
+                <div class="col-md-4">
+                    <div class="service-items card border-0 rounded-0">
+                        <div class="card-header bg-transparent border-0">
+                            <div class="service-icon">
+        {{--                        <span><i class="flaticon-oil-industry"></i></span>--}}
+                                <x-icon name="{{ $navbar_service->icon }}" width="70px"/>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="service-title">
+                                <h4>{{ $navbar_service->title }}</h4>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent border-0">
+                            <a href="{{ route('service' , ['Service' => $navbar_service->slug]) }}" class="service-link">
+                                <i class="las la-long-arrow-alt-right"></i>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
+@endsection
+
