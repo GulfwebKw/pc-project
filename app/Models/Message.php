@@ -8,7 +8,9 @@ use Illuminate\Support\Carbon;
 
 /**
  * @property int $id
- * @property string $name
+ * @property string $first_name
+ * @property string $last_name
+ * @property string $phone
  * @property string $email
  * @property string $ip
  * @property string $message
@@ -20,7 +22,9 @@ class Message extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'name',
+        'first_name',
+        'last_name',
+        'phone',
         'email',
         'message',
         'ip',

@@ -28,8 +28,12 @@ class MessageResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\Placeholder::make('name')
-                    ->content(fn($record) => $record->name),
+                Forms\Components\Placeholder::make('first_name')
+                    ->content(fn($record) => $record->first_name),
+                Forms\Components\Placeholder::make('last_name')
+                    ->content(fn($record) => $record->last_name),
+                Forms\Components\Placeholder::make('phone')
+                    ->content(fn($record) => $record->phone),
                 Forms\Components\Placeholder::make('email')
                     ->content(fn($record) => $record->email),
                 Forms\Components\Placeholder::make('ip')
@@ -48,7 +52,13 @@ class MessageResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('id')
                     ->sortable(),
-                Tables\Columns\TextColumn::make('name')
+                Tables\Columns\TextColumn::make('first_name')
+                    ->sortable()
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('last_name')
+                    ->sortable()
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('phone')
                     ->sortable()
                     ->searchable(),
                 Tables\Columns\TextColumn::make('email')
