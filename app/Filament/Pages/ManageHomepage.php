@@ -60,6 +60,21 @@ class ManageHomepage extends SettingsPage
                                     ->imageEditor()
                                     ->required(),
                             ]),
+                        Tabs\Tab::make('Services')
+                            ->columns(2)
+                            ->schema([
+                                TextInput::make('servicesTitle')
+                                    ->required(),
+                                TextInput::make('servicesSubTitle')
+                                    ->nullable(),
+                                \Mohamedsabil83\FilamentFormsTinyeditor\Components\TinyEditor::make('servicesContent')
+                                    ->columnSpanFull()
+                                    ->required(),
+                                FileUpload::make('servicesImage')
+                                    ->image()
+                                    ->imageEditor()
+                                    ->required(),
+                            ]),
                         Tabs\Tab::make('Industries')
                             ->columns(2)
                             ->schema([

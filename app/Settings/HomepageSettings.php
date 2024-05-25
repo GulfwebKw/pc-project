@@ -17,6 +17,10 @@ class HomepageSettings extends Settings
     public string $aboutUsButtonLabel;
     public string $aboutUsButtonLink;
     public string $aboutUsImage;
+    public string $servicesTitle;
+    public string $servicesSubTitle;
+    public string $servicesContent;
+    public string $servicesImage;
     public string $industriesTitle;
     public string $industriesSubTitle;
     public string $industriesContent;

@@ -18,6 +18,10 @@ return new class extends SettingsMigration
         $this->migrator->add('default.aboutUsButtonLabel', 'About Us');
         $this->migrator->add('default.aboutUsButtonLink', '/page/contact-us');
         $this->migrator->add('default.aboutUsImage', '/assets/img/image-01.jpg');
+        $this->migrator->add('default.servicesTitle', 'Our Services');
+        $this->migrator->add('default.servicesSubTitle', 'What we offer');
+        $this->migrator->add('default.servicesContent', 'We specialize in providing tailored solutions to support the initiatives and objectives of the public sector. With a wealth of experience and expertise, we offer a comprehensive range of services designed to address the unique challenges and opportunities faced by government agencies, municipalities, and public organizations.');
+        $this->migrator->add('default.servicesImage', '/assets/img/image-01.jpg');
         $this->migrator->add('default.industriesTitle', 'Our Industries');
         $this->migrator->add('default.industriesSubTitle', 'How it works');
         $this->migrator->add('default.industriesContent', 'We are a team of highly experienced project management professionals with a powerful reputation for delivering successful projects in the construction, Oil &Gas industries. With over 25 years of collective experience in international project management consulting,Oil & Gas, Energy, PPP Projects, and government and private projects, our team possesses the expertise and knowledge required to ensure the smooth execution of your project.');

@@ -5,54 +5,96 @@
 @endsection
 
 @section('breadcrumb')
-    <li><a href="{{ route('services') }}">Services</a></li>
-    <li>{{ $service->title }}</li>
+    <span><i class="fa-solid fa-angle-right"></i></span>
+    <a href="{{ route('services') }}" class="color">Service</a>
+    <span><i class="fa-solid fa-angle-right"></i></span>{{ $service->title }}
 @endsection
 
 @section('footerConcat' , true)
 
 
 @section('body')
-    <!-- About Section  -->
-    <div id="about-2" class="about-section section-padding pb-60">
+    <!--===== SERVICES SINGLE STARTS=======-->
+    <div class="serviceleft-section-area section-padding5">
         <div class="container">
-            @include('layouts.'.$service->template , ['image_1' => $service->image1 ? asset('storage/'.$service->image1) : null,'image_2' => $service->image2 ? asset('storage/'.$service->image2) : null,'title' => $service->title,'subTitle' => $service->subTitle,'content' => $service->content])
-        </div>
-    </div>
-    <!-- Service Section  -->
-    <div id="service-2" class="service-section gray-bg section-padding">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-xl-4 col-lg-4 col-md-4">
-                    <div class="section-title">
-                        <h6>What We Offer</h6>
-                        <h2>Our Services</h2>
-                    </div>
-                </div>
-
-            </div>
             <div class="row">
-                <div class="col-xl-12">
-                    <div class="service-slider owl-carousel">
-                        @foreach($navbar_services as $navbar_service)
-                            <div class="single-service-item">
-                                <div class="service-icon">
-                                    {{--                                <span><i class="flaticon-oil-industry"></i></span>--}}
-                                    <x-icon name="{{ $navbar_service->icon }}" width="70px"/>
-                                </div>
-                                <div class="service-title">
-                                    <h4>{{ $navbar_service->title }}</h4>
-                                </div>
-                                <a href="{{ route('service' , ['Service' => $navbar_service->slug]) }}" class="service-link">
-                                    <i class="las la-long-arrow-alt-right"></i>
+                <div class="col-lg-8">
+                    <div class="serviceauthior-area p-0">
+                        @if($service->image)
+                        <img src="{{ asset('storage/'.$service->image) }}" alt="{{ $service->title }}">
+                        @endif
+                        <div>
+                            {!! nl2br($service->content) !!}
+                        </div>
+                        <div class="row margin-t32">
+                            @foreach(collect($navbar_services)->take(2) as $navbar_service)
+                            <div class="col-lg-6 col-md-6 aos-init aos-animate" data-aos="fade-up" data-aos-duration="800">
+                                <a href="{{ route('service' , ['Service' => $navbar_service->slug]) }}">
+                                    <div class="service4-boxarea5 text-center margin-b24">
+                                        <div class="service5-boxarea5">
+                                            <div class="service5-icons margin-b20">
+                                                <img src="{{ asset('storage/'.$navbar_service->icon) }}" height="38" alt="{{ $navbar_service->title }}">
+                                            </div>
+                                            <p class="font-lora font-20 lineh-26 weight-600 color-31">{{ $navbar_service->title }}</p>
+                                        </div>
+                                    </div>
                                 </a>
                             </div>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="serviceour-area">
+                        <h1 class="font-lora font-24 lineh-24 weight-600 color-29 margin-b24">Our Services</h1>
+                        @foreach($navbar_services as $navbar_service)
+                        <div class="singlepalnning-area margin-b20">
+                            <a href="{{ route('service' , ['Service' => $navbar_service->slug]) }}" class="font-18 font-ks lineh-18 weight-600 color-29 ts">{{ $navbar_service->title }}</a>
+                            <span><i class="fa-solid fa-angle-right ts"></i></span>
+                        </div>
                         @endforeach
                     </div>
+
+
+                    <form method="POST" action="{{ route('sendContactUs') }}">
+                        @csrf
+                        <div class="quito-contact">
+                            <h1 class="font-24 lineh-24 weight-600 color-29  font-lora margin-b20">Get A Free Quote</h1>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    @if(session()->has('success'))
+                                        <div class="alert alert-success mt-3">
+                                            {{ session()->get('success') }}
+                                        </div>
+                                    @endif
+                                    <div class="quitoinput">
+                                        <input type="text" required name="first_name" value="{{ old('first_name') }}" placeholder="First Name">
+                                    </div>
+                                    <div class="quitoinput">
+                                        <input type="text" required name="last_name" value="{{ old('last_name') }}" placeholder="Last Name">
+                                    </div>
+
+                                    <div class="quitoinput">
+                                        <input type="email" required name="email" value="{{ old('email') }}" placeholder="Email">
+                                    </div>
+
+                                    <div class="quitoinput">
+                                        <input type="number" required name="phone" value="{{ old('phone') }}" placeholder="Phone">
+                                    </div>
+
+                                    <div class="quitoinput">
+                                        <textarea cols="30" required name="message" rows="15" placeholder="Message">{{ old('message') }}</textarea>
+                                    </div>
+                                    <button type="submit" class="quitobtn font-ks font-16 lineh-16 weight-700 color ">Submit Now <span><i class="fa-solid fa-arrow-right"></i></span></button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
-
+    <!--===== SERVICES SINGLE END =======-->
 @endsection
 

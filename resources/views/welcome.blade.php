@@ -108,102 +108,23 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-duration="800">
+                @foreach(collect($navbar_services)->take(8) as $navbar_service)
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-duration="{{ $loop->index * 200 + 800 }}">
                     <a href="#">
                         <div class="service4-boxarea5 text-center margin-b24">
                             <div class="service5-boxarea5">
                                 <div class="service5-icons margin-b20">
-                                    <img src="{{ asset('assets/images/icons/forensic-accounting-line-icon-vector.png') }}" height="38" alt="">
+                                    <img src="{{ asset('storage/'.$navbar_service->icon) }}" height="38" alt="{{ $navbar_service->title }}">
                                 </div>
-                                <p class="font-lora font-20 lineh-26 weight-600 color-31">Forensic Accounting & Investigations Expert Services</p>
+                                <p class="font-lora font-20 lineh-26 weight-600 color-31">{{ $navbar_service->title }}</p>
                             </div>
                         </div>
                     </a>
                 </div>
-
-                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-duration="1000">
-                    <a href="#">
-                        <div class="service4-boxarea5 text-center margin-b24">
-                            <div class="service5-boxarea5">
-                                <div class="service5-icons margin-b20">
-                                    <img src="{{ asset('assets/images/icons/disruption.png') }}" height="38" alt="">
-                                </div>
-
-                                <p class="font-lora font-20 lineh-26 weight-600 color-31">Delay & Disruption Expert Services</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-
-                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-duration="1200">
-                    <a href="#">
-                        <div class="service4-boxarea5 text-center margin-b24">
-                            <div class="service5-boxarea5">
-                                <div class="service5-icons margin-b20">
-                                    <img src="{{ asset('assets/images/icons/governance.png') }}" height="38" alt="">
-                                </div>
-                                <p class="font-lora font-20 lineh-26 weight-600 color-31">Claims Governance Services</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-
-                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-duration="1400">
-                    <a href="#">
-                        <div class="service4-boxarea5 text-center margin-b24">
-                            <div class="service5-boxarea5">
-                                <div class="service5-icons margin-b20">
-                                    <img src="{{ asset('assets/images/icons/construction.png') }}" height="38" alt="">
-                                </div>
-                                <p class="font-lora font-20 lineh-26 weight-600 color-31">Construction Claims Consultants</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-duration="1000">
-                    <a href="#">
-                        <div class="service4-boxarea5 text-center">
-                            <div class="service5-boxarea5">
-                                <div class="service5-icons margin-b20">
-                                    <img src="{{ asset('assets/images/icons/infrastructure.png') }}" height="38" alt="">
-                                </div>
-                                <p class="font-lora font-20 lineh-26 weight-600 color-31">Infrastructure & Capital Projects Advisory</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-duration="1200">
-                    <a href="#">
-                        <div class="service4-boxarea5 text-center">
-                            <div class="service5-boxarea5">
-                                <div class="service5-icons margin-b20">
-                                    <img src="{{ asset('assets/images/icons/law3.png') }}" alt="">
-                                </div>
-                                <p class="font-lora font-20 lineh-26 weight-600 color-31">Corporate Finance Services Advisory</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-duration="1400">
-                    <a href="#">
-                        <div class="service4-boxarea5 text-center">
-                            <div class="service5-boxarea5">
-                                <div class="service5-icons margin-b20">
-                                    <img src="{{ asset('assets/images/icons/personal1.png') }}" alt="">
-                                </div>
-                                <p class="font-lora font-20 lineh-26 weight-600 color-31">Claim Management Studio</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+                @endforeach
                 <div class="col-lg-12" data-aos="fade-up" data-aos-duration="1200">
                     <div class="theme6-btn6 text-center margin-t60 resposinespace">
-                        <a href="service.html" class="theme6-btn6 font-ks lineh-16 weight-700 color font-16">See More Services <span><i class="fa-solid fa-arrow-right"></i></span></a>
+                        <a href="{{ route('services') }}" class="theme6-btn6 font-ks lineh-16 weight-700 color font-16">See More Services <span><i class="fa-solid fa-arrow-right"></i></span></a>
                     </div>
                 </div>
             </div>

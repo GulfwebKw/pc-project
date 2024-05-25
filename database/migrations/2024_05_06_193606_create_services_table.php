@@ -15,12 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('title')->nullable();
             $table->string('slug')->nullable();
-            $table->string('icon')->nullable();
-            $table->string('subTitle')->nullable();
             $table->longText('content')->nullable();
-            $table->string('image1')->nullable();
-            $table->string('image2')->nullable();
-            $table->string('template')->nullable();
+            $table->string('image')->nullable();
+            $table->string('icon')->nullable();
             $table->boolean('is_active')->default(true);
             $table->unsignedInteger('ordering')->default(0);
             $table->timestamps();
