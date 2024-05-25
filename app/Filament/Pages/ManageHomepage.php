@@ -27,30 +27,26 @@ class ManageHomepage extends SettingsPage
                     ->tabs([
                         Tabs\Tab::make('Header Slider')
                             ->schema([
-                                Repeater::make('slideshow')
-                                    ->columns(2)
-                                    ->label('Slide shows')
-                                    ->schema([
-                                        TextInput::make('title')
-                                            ->required(),
-                                        Forms\Components\Textarea::make('description')
-                                            ->required(),
-                                        TextInput::make('link')
-                                            ->url()
-                                            ->required(),
-                                        TextInput::make('button')
-                                            ->required(),
-                                        FileUpload::make('image')
-                                            ->image()
-                                            ->imageEditor()
-                                            ->required(),
-                                    ]),
+                                TextInput::make('headerTitle')
+                                    ->required(),
+                                TextInput::make('headerSubTitle')
+                                    ->nullable(),
+                                TextInput::make('headerButtonLabel')
+                                    ->required(),
+                                TextInput::make('headerButtonLink')
+                                    ->url()
+                                    ->required(),
+                                \Mohamedsabil83\FilamentFormsTinyeditor\Components\TinyEditor::make('headerContent')
+                                    ->columnSpanFull()
+                                    ->required(),
                             ]),
                         Tabs\Tab::make('About Us')
                             ->columns(2)
                             ->schema([
                                 TextInput::make('aboutUsTitle')
                                     ->required(),
+                                TextInput::make('aboutUsSubTitle')
+                                    ->nullable(),
                                 TextInput::make('aboutUsButtonLabel')
                                     ->required(),
                                 TextInput::make('aboutUsButtonLink')
@@ -59,57 +55,73 @@ class ManageHomepage extends SettingsPage
                                 \Mohamedsabil83\FilamentFormsTinyeditor\Components\TinyEditor::make('aboutUsContent')
                                     ->columnSpanFull()
                                     ->required(),
-                                FileUpload::make('aboutUsImage1')
+                                FileUpload::make('aboutUsImage')
                                     ->image()
                                     ->imageEditor()
                                     ->required(),
-                                FileUpload::make('aboutUsImage2')
-                                    ->image()
-                                    ->imageEditor(),
                             ]),
-                        Tabs\Tab::make('Our Mission')
+                        Tabs\Tab::make('Industries')
                             ->columns(2)
                             ->schema([
-                                TextInput::make('ourMissionTitle')
+                                TextInput::make('industriesTitle')
                                     ->required(),
-                                TextInput::make('ourMissionButtonLabel')
+                                TextInput::make('industriesSubTitle')
+                                    ->nullable(),
+                                TextInput::make('industriesButtonLabel')
                                     ->required(),
-                                TextInput::make('ourMissionFrom')
-                                    ->required(),
-                                TextInput::make('ourMissionFromSubHeader')
-                                    ->required(),
-                                TextInput::make('ourMissionButtonLink')
+                                TextInput::make('industriesButtonLink')
                                     ->url()
                                     ->required(),
-                                \Mohamedsabil83\FilamentFormsTinyeditor\Components\TinyEditor::make('ourMissionContent')
+                                \Mohamedsabil83\FilamentFormsTinyeditor\Components\TinyEditor::make('industriesContent')
                                     ->columnSpanFull()
                                     ->required(),
-                                Repeater::make('ourMissionSlideshow')
+                                Repeater::make('industriesList')
                                     ->columns(2)
                                     ->columnSpan(2)
-                                    ->label('Mission slideshows')
                                     ->schema([
                                         TextInput::make('title')
-                                            ->required(),
-                                        FileUpload::make('image')
-                                            ->image()
-                                            ->imageEditor()
                                             ->required(),
                                     ]),
-                                Repeater::make('ourMissionProductions')
+                                FileUpload::make('industriesImage')
+                                    ->image()
+                                    ->imageEditor()
+                                    ->required(),
+                            ]),
+                        Tabs\Tab::make('Vision')
+                            ->columns(2)
+                            ->schema([
+                                TextInput::make('visionTitle')
+                                    ->required(),
+                                TextInput::make('visionButtonLabel')
+                                    ->required(),
+                                TextInput::make('visionButtonLink')
+                                    ->url()
+                                    ->required(),
+                                \Mohamedsabil83\FilamentFormsTinyeditor\Components\TinyEditor::make('visionContent')
+                                    ->columnSpanFull()
+                                    ->required(),
+                                FileUpload::make('visionImage')
+                                    ->image()
+                                    ->imageEditor()
+                                    ->required(),
+                            ]),
+                        Tabs\Tab::make('Comments')
+                            ->columns(1)
+                            ->schema([
+                                Repeater::make('comments')
                                     ->columns(2)
-                                    ->columnSpan(2)
-                                    ->label('Mission productions')
+                                    ->columnSpanFull()
                                     ->schema([
-                                        TextInput::make('title')
+                                        TextInput::make('from')
                                             ->required(),
-                                        TextInput::make('link')
-                                            ->url()
+                                        TextInput::make('subFrom')
+                                            ->nullable(),
+                                        Forms\Components\Textarea::make('comment')
                                             ->required(),
                                         FileUpload::make('image')
                                             ->image()
                                             ->imageEditor()
-                                            ->required(),
+                                            ->nullable(),
                                     ]),
                             ]),
                     ]),

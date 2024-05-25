@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('slug')->nullable();
             $table->string('icon')->nullable();
             $table->string('subTitle')->nullable();
-            $table->text('content')->nullable();
+            $table->longText('content')->nullable();
             $table->string('image1')->nullable();
             $table->string('image2')->nullable();
             $table->string('template')->nullable();

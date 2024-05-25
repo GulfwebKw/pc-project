@@ -35,14 +35,16 @@ Route::get('/news-and-articles', function (\App\Models\Post $Post) {
     return view('posts' , ['posts' => \App\Models\Post::query()
         ->where('is_active' , true)
         ->orderByDesc('id')
-        ->get()]);
+        ->paginate()]);
 })->name('posts');
 
 
 Route::view('/contact-us', 'contactUs')->name('contactUs');
 Route::post('/contact-us', function (\Illuminate\Http\Request $request) {
     \App\Models\Message::query()->create([
-        'name' => $request->get('name'),
+        'first_name' => $request->get('first_name'),
+        'last_name' => $request->get('last_name'),
+        'phone' => $request->get('phone'),
         'email' => $request->get('email'),
         'message' => $request->get('message'),
         'ip' => $request->ip(),

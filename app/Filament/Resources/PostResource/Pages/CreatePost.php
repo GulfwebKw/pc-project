@@ -14,6 +14,7 @@ class CreatePost extends CreateRecord
     protected function mutateFormDataBeforeCreate(array $data): array
     {
         $data['slug'] = Str::slug($data['title']);
+        $data['author_id'] = filament()->auth()->user()->id;
         return $data;
     }
 }

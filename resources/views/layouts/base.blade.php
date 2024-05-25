@@ -365,10 +365,10 @@
                                 <img src="{{ asset('storage/'.$setting->logo) }}"  alt="{{ $setting->title }}">
                                 <div class="icon-social-links mt-4">
                                     <ul>
-                                        <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
-                                        <li><a href="#" class="ml1"><i class="fa-brands fa-google-plus-g"></i></a></li>
-                                        <li><a href="#" class="ml1"><i class="fa-brands fa-linkedin-in"></i></a></li>
-                                        <li><a href="#" class="ml1"><i class="fa-brands fa-youtube"></i></a></li>
+                                        @foreach($setting->socials as $social)
+                                            <li><a href="{{ $social['link'] }}" @if(! $loop->first ) class="ml1"  @endif @if($social['help']) title="{{$social['help']}}" @endif><i class="fa-brands {{ $social['icon'] }}"></i></a></li>
+                                        @endforeach
+
                                     </ul>
                                 </div>
                             </div>

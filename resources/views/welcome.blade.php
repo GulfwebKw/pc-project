@@ -12,14 +12,20 @@
             <div class="row align-items-center">
                 <div class="col-lg-6" data-aos="fade-right" data-aos-duration="1000">
                     <div class="welcome4-textarea">
-                        <span class="trust font-ks font-16 lineh-16 weight-600 color margin-b24 ">Trusted Law Consulting Services</span>
+                        @if( $home->headerSubTitle)
+                            <span class="trust font-ks font-16 lineh-16 weight-600 color margin-b24 ">{{ $home->headerSubTitle }}</span>
+                        @endif
                         <div class="warp">
-                            <h1 class="font-lora font-60 lineh-64 weight-500 color quote text-capitalize">Elevate your legal strategy partner to consalt</h1>
+                            <h1 class="font-lora font-60 lineh-64 weight-500 color quote text-capitalize">{{ $home->headerTitle }}</h1>
                         </div>
-                        <p class="font-ks font-16 lineh-26 weight-500 color margin-t">We have a deep understanding of various industries, allowing <br> us to provide specialized legal guidance tailored to your sector.</p>
-                        <div class="shecdule-btn1" data-aos="fade-right" data-aos-duration="1200">
-                            <a href="contact.html" class="font-ks font-16 lineh-16 color weight-700 shedule-btn2 d-inline-block margin-t28">Start Legal Consulation <span><i class="fa-solid fa-arrow-right"></i></span></a>
-                        </div>
+                        <p class="font-ks font-16 lineh-26 weight-500 color margin-t">
+                            {!! $home->headerContent !!}
+                        </p>
+                        @if( $home->headerButtonLabel and $home->headerButtonLink )
+                            <div class="shecdule-btn1" data-aos="fade-right" data-aos-duration="1200">
+                                <a href="{{ $home->headerButtonLink }}" class="font-ks font-16 lineh-16 color weight-700 shedule-btn2 d-inline-block margin-t28">{{ $home->headerButtonLabel }} <span><i class="fa-solid fa-arrow-right"></i></span></a>
+                            </div>
+                        @endif
                     </div>
                 </div>
                 <div class="col-lg-6" data-aos="fade-left" data-aos-duration="1000">
@@ -212,22 +218,29 @@
             <div class="row align-items-center">
                 <div class="col-lg-6" data-aos="fade-right" data-aos-duration="800">
                     <div class="client3-section-textarea">
-                        <span class="about3span font-ks lineh-16 font-16 weight-600 color-29 d-inline-block margin-b24">How it works</span>
-                        <h1 class="font-lora font-48 lineh-56 weight-600 color-29 margin-b20 clienth2">Our Industries</h1>
-                        <p class="font-ks font-16 lineh-26 weight-500 color-30  margin-b30">We are a team of highly experienced project management professionals with a powerful reputation for delivering successfulprojects in the construction, Oil &Gas industries. With over 25 years of collective experience in international project management consulting,Oil & Gas, Energy, PPP Projects, and government and private projects, our team possesses the expertise and knowledge requiredto ensure the smooth execution of your project.</p>
+                        @if($home->industriesSubTitle)
+                            <span class="about3span font-ks lineh-16 font-16 weight-600 color-29 d-inline-block margin-b24">{{ $home->industriesSubTitle }}</span>
+                        @endif
+                        <h1 class="font-lora font-48 lineh-56 weight-600 color-29 margin-b20 clienth2">{{ $home->industriesTitle }}</h1>
+                        <p class="font-ks font-16 lineh-26 weight-500 color-30  margin-b30">
+                            {!! $home->industriesContent !!}
+                        </p>
 
                         <ul>
-                            <li class="font-ks font-16 lineh-16 weight-600 color-17 margin-b20"><span><img src="{{ asset('assets/images/icons/check1.png') }}" alt=""></span>Project &Claim Management </li>
-                            <li class="font-ks font-16 lineh-16 weight-600 color-17 margin-b20"><span><img src="{{ asset('assets/images/icons/check1.png') }}" alt=""></span>Information Technology</li>
-                            <li class="font-ks font-16 lineh-16 weight-600 color-17 margin-b20"><span><img src="{{ asset('assets/images/icons/check1.png') }}" alt=""></span>Medical System management</li>
-                            <li class="font-ks font-16 lineh-16 weight-600 color-17"><span><img src="{{ asset('assets/images/icons/check1.png') }}" alt=""></span>Corporate Services</li>
+                            @foreach($home->industriesList as $industriesList )
+                                <li class="font-ks font-16 lineh-16 weight-600 color-17 margin-b20"><span><img src="{{ asset('assets/images/icons/check1.png') }}" alt=""></span>{{ $industriesList['title'] }} </li>
+                            @endforeach
                         </ul>
-                        <a href="industries.html" class="theme6-btn6 font-ks lineh-16 weight-700 color font-16 margin-t32">Learn More <span><i class="fa-solid fa-arrow-right"></i></span></a>
+                        @if($home->industriesButtonLabel && $home->industriesButtonLink )
+                            <a href="{{ $home->industriesButtonLink }}" class="theme6-btn6 font-ks lineh-16 weight-700 color font-16 margin-t32">{{ $home->industriesButtonLabel }} <span><i class="fa-solid fa-arrow-right"></i></span></a>
+                        @endif
                     </div>
                 </div>
                 <div class="col-lg-6" data-aos="fade-left" data-aos-duration="1000">
                     <div class="client4-img1">
-                        <img src="{{ asset('assets/images/sectionimg1/industries.png') }}" class="industriesImage" alt="" data-aos="zoom-in" data-aos-duration="1200">
+                        @if($home->industriesImage)
+                            <img src="{{ asset('storage/'.$home->industriesImage) }}" class="industriesImage" alt="" data-aos="zoom-in" data-aos-duration="1200">
+                        @endif
                         <img src="{{ asset('assets/images/elementor/elementor17.png') }}" alt="" class="elementor-23 keyframe3">
                     </div>
                 </div>
@@ -243,20 +256,24 @@
             <div class="row align-items-center">
                 <div class="col-lg-6">
                     <div class="vissionimages">
-                        <img src="{{ asset('assets/images/sectionimg1/image-2.jpg') }}" class="visionImage" alt="">
+                        @if($home->visionImage)
+                            <img src="{{ asset('storage/'.$home->visionImage) }}" class="visionImage" alt="">
+                        @endif
                         <img src="{{ asset('assets/images/elementor/elementor17.png') }}" alt="" class="elementor-23 keyframe3">
 
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="vission-textarea">
-                        <span class="about3span font-ks lineh-16 font-16 weight-600 color-29 d-inline-block margin-b24">Vision</span>
-                        <p class="font-16 lineh-26 weight-500 color-30 margin-b24"><span class="weight-700 color-29">Our Approach:</span> What sets us apart is our holistic approach to consultancy. We understand that true transformation requires more than just surface-level fixes. That's why we take the time to delve deep into the heart of each challenge, exploring every angle and uncovering hidden opportunities for growth. By combining analytical rigor with creative thinking, we develop innovative strategies that drive tangible results and deliver lasting impact.</p>
-                        <p class="font-16 lineh-26 weight-500 color-30 margin-b24"><span class="weight-700 color-29">Our Values:</span> What sets us apart is our holistic approach to consultancy. We understand that true transformation requires more than just surface-level fixes. That's why we take the time to delve deep into the heart of each challenge, exploring every angle and uncovering hidden opportunities for growth. By combining analytical rigor with creative thinking, we develop innovative strategies that drive tangible results and deliver lasting impact.</p>
+                        <span class="about3span font-ks lineh-16 font-16 weight-600 color-29 d-inline-block margin-b24">{{ $home->visionTitle }}</span>
+                        <p class="font-16 lineh-26 weight-500 color-30 margin-b24"><span class="weight-700 color-29">
+                            {!! $home->visionContent !!}
+                        </p>
                         <!-- <div class="border7 margin-b20"></div> -->
 
-
-                        <a href="vision.html" class="theme6-btn6 font-ks lineh-16 weight-700 color font-16 ">Learn More <span><i class="fa-solid fa-arrow-right"></i></span></a>
+                        @if($home->visionButtonLink and $home->visionButtonLabel )
+                            <a href="{{ $home->visionButtonLink }}" class="theme6-btn6 font-ks lineh-16 weight-700 color font-16 ">{{ $home->visionButtonLabel }} <span><i class="fa-solid fa-arrow-right"></i></span></a>
+                        @endif
                     </div>
                 </div>
 
@@ -267,109 +284,81 @@
     <!--===== VISION END =======-->
 
 
+    @if(count($home->comments) > 0 )
     <!--===== CTA STARST=======-->
     <div class="cta4-section-area section-padding7">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="cta4-carousel owl-carousel">
+                        @foreach($home->comments as $comments)
                         <div class="cta4-textarea4 ">
-                            <p class="font-ks font-24 lineh-34 weight-500 color text-center">“Our law consulting team comprises seasoned legal professionals with a track record of success across various industries and legal domains. You can trust in our expertise and dedication to achieving the best possible outcomes for you.”</p>
+                            <p class="font-ks font-24 lineh-34 weight-500 color text-center">“{!! nl2br($comments['comment']) !!}”</p>
                             <div class="cta4-manarea margin-t40">
-                                <img src="{{ asset('assets/images/sectionimg/ctaman.png') }}" alt="">
+                                @if($comments['subFrom'])
+                                <img src="{{ asset('storage/'.$comments['image']) }}" alt="">
+                                @endif
                                 <div class="cta4-mantext">
-                                    <h1 class="font-24 font-lora weight-600 lineh-24 color margin-b">Alex-David Luis</h1>
-                                    <p class="font-ks font-16 lineh-16 weight-500 color">Our Attorneys</p>
+                                    <h1 class="font-24 font-lora weight-600 lineh-24 color margin-b">{{ $comments['from'] }}</h1>
+                                    @if($comments['subFrom'])
+                                    <p class="font-ks font-16 lineh-16 weight-500 color">{{ $comments['subFrom'] }}</p>
+                                    @endif
                                 </div>
                             </div>
                         </div>
-
-                        <div class="cta4-textarea4 ">
-                            <p class="font-ks font-24 lineh-34 weight-500 color text-center">“Our law consulting team comprises seasoned legal professionals with a track record of success across various industries and legal domains. You can trust in our expertise and dedication to achieving the best possible outcomes for you.”</p>
-                            <div class="cta4-manarea margin-t40">
-                                <img src="{{ asset('assets/images/sectionimg/ctaman.png') }}" alt="">
-                                <div class="cta4-mantext">
-                                    <h1 class="font-24 font-lora weight-600 lineh-24 color margin-b">Alex-David Luis</h1>
-                                    <p class="font-ks font-16 lineh-16 weight-500 color">Our Attorneys</p>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="cta4-textarea4 ">
-                            <p class="font-ks font-24 lineh-34 weight-500 color text-center">“Our law consulting team comprises seasoned legal professionals with a track record of success across various industries and legal domains. You can trust in our expertise and dedication to achieving the best possible outcomes for you.”</p>
-                            <div class="cta4-manarea margin-t40">
-                                <img src="{{ asset('assets/images/sectionimg/ctaman.png') }}" alt="">
-                                <div class="cta4-mantext">
-                                    <h1 class="font-24 font-lora weight-600 lineh-24 color margin-b">Alex-David Luis</h1>
-                                    <p class="font-ks font-16 lineh-16 weight-500 color">Our Attorneys</p>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="cta4-textarea4 ">
-                            <p class="font-ks font-24 lineh-34 weight-500 color text-center">“Our law consulting team comprises seasoned legal professionals with a track record of success across various industries and legal domains. You can trust in our expertise and dedication to achieving the best possible outcomes for you.”</p>
-                            <div class="cta4-manarea margin-t40">
-                                <img src="{{ asset('assets/images/sectionimg/ctaman.png') }}" alt="">
-                                <div class="cta4-mantext">
-                                    <h1 class="font-24 font-lora weight-600 lineh-24 color margin-b">Alex-David Luis</h1>
-                                    <p class="font-ks font-16 lineh-16 weight-500 color">Our Attorneys</p>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <!--===== CTA END=======-->
-
+    @endif
 
     @if($posts->count() > 0 )
-    <!--===== BLIOG STARTS=======-->
-    <div class="blog-5-section-area section-padding7">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="blog5-header5 margin-b60 text-center">
-                        <span class="about3span font-ks lineh-16 font-16 weight-600 color-29 d-inline-block margin-b24">Our Blog</span>
-                        <h1 class="font-lora font-48 lineh-56 weight-600 color-29 margin-b20 clienth2">Our Latest News & Blog</h1>
+        <!--===== BLIOG STARTS=======-->
+        <div class="blog-5-section-area section-padding7">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="blog5-header5 margin-b60 text-center">
+                            <span class="about3span font-ks lineh-16 font-16 weight-600 color-29 d-inline-block margin-b24">Our Blog</span>
+                            <h1 class="font-lora font-48 lineh-56 weight-600 color-29 margin-b20 clienth2">Our Latest News & Blog</h1>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                @foreach($posts as $post)
-                <div class="col-lg-6" data-aos="fade-up" data-aos-duration="{{ $loop->index * 200 + 1000 }}">
-                    <div class="blog5-author5">
-                        <div class="blog5-imag5">
-                            <img src="{{ asset('storage/'.$post->image) }}" alt="{{ $post->title }}">
-                        </div>
-                        <div class="blog-auhtor-text">
-                            <div class="blog-author-flex">
-                                <img src="{{ asset('storage/'.$post->image) }}" alt="{{ $post->title }}">
-                                <a href="{{ route('post' , ['Post' => $post->slug]) }}"><p class="font-outfit font-16 lineh-26 weight-500 color-17">{{ $post->created_at->format('d F Y') }}</p></a>
-                            </div>
-                            <h1 class="font-lora font-20 lineh-20 weight-600 color-29 margin-t margin-b">
-                                <a href="{{ route('post' , ['Post' => $post->slug]) }}" class="color-29">
-                                    {{ $post->title }}
-                                </a>
-                            </h1>
-                            <p class="font-16 font-ks lineh-26 weight-500 color-30 margin-b30">
-                                {{ $post->subTitle }}
-                            </p>
-                            <a href="{{ route('post' , ['Post' => $post->slug]) }}" class="font-ks font-16 lineh-16 weight-700 color-29 learnmore3">
-                                Learn More <span><i class="fa-solid fa-arrow-right"></i></span>
-                            </a>
+                <div class="row">
+                    @foreach($posts as $post)
+                        <div class="col-lg-6" data-aos="fade-up" data-aos-duration="{{ $loop->index * 200 + 1000 }}">
+                            <div class="blog5-author5">
+                                <div class="blog5-imag5">
+                                    <img src="{{ asset('storage/'.$post->image) }}" alt="{{ $post->title }}">
+                                </div>
+                                <div class="blog-auhtor-text">
+                                    <div class="blog-author-flex">
+                                        <img src="{{ asset('assets/images/icons/email6.png') }}" alt="{{ $post->title }}">
+                                        <a href="{{ route('post' , ['Post' => $post->slug]) }}"><p class="font-outfit font-16 lineh-26 weight-500 color-17">{{ $post->created_at->format('d F Y') }}</p></a>
+                                    </div>
+                                    <h1 class="font-lora font-20 lineh-20 weight-600 color-29 margin-t margin-b">
+                                        <a href="{{ route('post' , ['Post' => $post->slug]) }}" class="color-29">
+                                            {{ $post->title }}
+                                        </a>
+                                    </h1>
+                                    <p class="font-16 font-ks lineh-26 weight-500 color-30 margin-b30">
+                                        {!! nl2br($post->short_content) !!}
+                                    </p>
+                                    <a href="{{ route('post' , ['Post' => $post->slug]) }}" class="font-ks font-16 lineh-16 weight-700 color-29 learnmore3">
+                                        Learn More <span><i class="fa-solid fa-arrow-right"></i></span>
+                                    </a>
 
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                    @endforeach
                 </div>
-                @endforeach
             </div>
         </div>
-    </div>
-    <!--===== BLIOG END=======-->
+        <!--===== BLIOG END=======-->
     @endif
 
     <!--===== CONTACT STARTS=======-->
@@ -388,7 +377,7 @@
                             </div>
                             <div class="phone7-text">
                                 <p class="font-16 lineh-16 weight-500 font-ks color-30 margin-b">Gives us a Call</p>
-                                <a href="tel:123-456-7890" class="font-lora font-24 weight-700 lineh-24 color-29">+965 2227 2212</a>
+                                <a href="tel:{{ str_replace(' ', '' , $setting->phone) }}" class="font-lora font-24 weight-700 lineh-24 color-29">{{ $setting->phone }}</a>
                             </div>
                         </div>
 
@@ -398,58 +387,70 @@
                             </div>
                             <div class="phone7-text">
                                 <p class="font-16 lineh-16 weight-500 font-ks color-30 margin-b">Send me Mail</p>
-                                <a href="mailto:Consult@hotmail.com" class="font-lora font-24 weight-700 lineh-24 color-29">info@whitewolfkw.com</a>
+                                <a href="mailto:{{ $setting->email }}" class="font-lora font-24 weight-700 lineh-24 color-29">{{ $setting->email }}</a>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6" data-aos="fade-right" data-aos-duration="1000">
                     <div class="contact5-main-section">
-                        <div class="contact-main-text">
-                            <h1 class="font-lora font-24 lineh-24 weight-600 color">Send us a Message</h1>
-                            <!-- <p class="font-ks font-16 lineh-26 weight-500 color margin-t">As a fellow small business owner, we know the fulfillment that an a comes from running your own business contact to Financy.</p> -->
-                        </div>
-                        <div class="contac5-input5area">
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="input-5area margin-t32">
-                                        <input type="text" placeholder="First Name">
-                                    </div>
-                                </div>
 
-                                <div class="col-lg-6">
-                                    <div class="input-5area margin-t32">
-                                        <input type="text" placeholder="Last Name">
-                                    </div>
-                                </div>
+                        <form method="POST" action="{{ route('sendContactUs') }}">
+                            <div class="contact-main-text">
+                                <h1 class="font-lora font-24 lineh-24 weight-600 color">Send us a Message</h1>
+                                <!-- <p class="font-ks font-16 lineh-26 weight-500 color margin-t">As a fellow small business owner, we know the fulfillment that an a comes from running your own business contact to Financy.</p> -->
+                            </div>
 
-                                <div class="col-lg-6">
-                                    <div class="input-5area margin-t">
-                                        <input type="email" placeholder="Email">
+                            @csrf
+                            <div class="contact-from-area">
+                                @if(session()->has('success'))
+                                    <div class="alert alert-success mt-3">
+                                        {{ session()->get('success') }}
                                     </div>
-                                </div>
+                                @endif
+                                <div class="contac5-input5area">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="input-5area margin-t32">
+                                                <input type="text" required name="first_name" value="{{ old('first_name') }}" placeholder="First Name">
+                                            </div>
+                                        </div>
 
-                                <div class="col-lg-6">
-                                    <div class="input-5area margin-t">
-                                        <input type="number" placeholder="Phone">
-                                    </div>
-                                </div>
+                                        <div class="col-lg-6">
+                                            <div class="input-5area margin-t32">
+                                                <input type="text" required name="last_name" value="{{ old('last_name') }}" placeholder="Last Name">
+                                            </div>
+                                        </div>
 
-                                <div class="col-lg-12">
-                                    <div class="input-5area margin-t">
-                                        <input type="text" placeholder="Subject">
-                                    </div>
-                                </div>
-                                <div class="col-lg-12">
-                                    <div class="input-5area margin-t">
-                                        <textarea cols="30" rows="10" placeholder="Message"></textarea>
-                                    </div>
-                                    <div class="contact5-btn5" data-aos="fade-right" data-aos-duration="1200">
-                                        <button class="font-ks font-16 lineh-16 weight-700 color margin-t32 contcat5" type="submit">Submit Now <span><i class="fa-solid fa-arrow-right"></i></span></button>
+                                        <div class="col-lg-6">
+                                            <div class="input-5area margin-t">
+                                                <input type="email" required name="email" value="{{ old('email') }}" placeholder="Email">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-6">
+                                            <div class="input-5area margin-t">
+                                                <input type="number" required name="phone" value="{{ old('phone') }}" placeholder="Phone">
+                                            </div>
+                                        </div>
+
+                                        {{--                                        <div class="col-lg-12">--}}
+                                        {{--                                            <div class="input-5area margin-t">--}}
+                                        {{--                                                <input type="text" placeholder="Subject">--}}
+                                        {{--                                            </div>--}}
+                                        {{--                                        </div>--}}
+                                        <div class="col-lg-12">
+                                            <div class="input-5area margin-t">
+                                                <textarea cols="30" required name="message" rows="15" placeholder="Message">{{ old('message') }}</textarea>
+                                            </div>
+                                            <div class="contact5-btn5">
+                                                <button class="font-ks font-16 lineh-16 weight-700 color margin-t32 contcat5" type="submit">Submit Now <span><i class="fa-solid fa-arrow-right"></i></span></button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>

@@ -30,8 +30,8 @@ class PostResource extends Resource
             ->schema([
                 TextInput::make('title')
                     ->required(),
-                TextInput::make('subTitle')
-                    ->nullable(),
+                Forms\Components\Textarea::make('short_content')
+                    ->required(),
                 \Mohamedsabil83\FilamentFormsTinyeditor\Components\TinyEditor::make('content')
                     ->columnSpan(2)
                     ->required(),
@@ -50,8 +50,13 @@ class PostResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('id')
                     ->sortable(),
+                Tables\Columns\TextColumn::make('author.name')
+                    ->sortable()
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('title')
                     ->sortable()
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('short_content')
                     ->searchable(),
                 Tables\Columns\BooleanColumn::make('is_active'),
             ])

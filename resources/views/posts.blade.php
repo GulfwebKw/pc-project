@@ -3,54 +3,43 @@
 @section('title' , 'Services')
 
 @section('breadcrumb')
-    <li>Services</li>
+    <span><i class="fa-solid fa-angle-right"></i></span> News
 @endsection
 
 @section('footerConcat' , true)
 
 
 @section('body')
-    <!-- Blog Section  -->
-    <div id="blog-2" class="blog-section gray-bg section-padding">
+
+    <!--===== BLOG STARTS=======-->
+    <div class="cloginner-3-sevtion-area section-padding5">
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-xl-6 col-lg-6 text-center">
-                    <div class="section-title">
-                        <h6>Our News</h6>
-                        <h2>Oil & Gas Blogs</h2>
+            <div class="row">
+                @foreach($posts as $post)
+                <div class="col-lg-4 col-md-6">
+                    <div class="blog1-boxarea">
+                        <div class="blog1-img">
+                            <img src="{{ asset('storage/'.$post->image) }}" alt="{{ $post->title }}">
+                        </div>
+                        <div class="blog1-padding">
+                            <div class="blog1-text">
+                                <img src="{{ asset('assets/images/icons/vector1.png') }}" alt="">
+
+                                <a href="{{ route('post' , ['Post' => $post->slug]) }}" class="color-29"><p class="font-ks font-16 weight-600 color-29 lineh-26">{{ $post->created_at->format('d F Y') }}</p></a>
+                            </div>
+                            <a href="{{ route('post' , ['Post' => $post->slug]) }}" class="font-lora font-20 lineh-30 weight-600 color-29 margin-b d-inline-block link-hover">{{ $post->title }}</a>
+                            <p class="font-16 font-ks lineh-26 weight-500 color-26 margin-b">{!! nl2br($post->short_content) !!}</p>
+                            <a href="{{ route('post' , ['Post' => $post->slug]) }}" class="font-ks font-16 lineh-16 color-29 weight-700  d-inline-block laearnmore2 bloginnerhover">Learn More <span><i class="fa-solid fa-arrow-right"></i></span></a>
+                        </div>
                     </div>
                 </div>
+                @endforeach
             </div>
-            <div class="row mt-30">
-                <div class="blog-carousel owl-carousel">
-                    @foreach($posts as $post)
-                    <a href="{{ route('post' , ['Post' => $post->slug]) }}" class="single-blog-item wow fadeInUp" data-wow-delay=".2s">
-                        @if( $loop->odd )
-                            <div class="blog-img hoverImg">
-                                <figure><img src="{{ asset('storage/'.$post->image) }}" alt="{{ $post->title }}"></figure>
-                            </div>
-                        @endif
-                        <div class="blog-content">
-                            <div class="blog-meta">
-                                <span>{{ $post->subTitle }}</span>
-                            </div>
-                            <div class="blog-title">
-                                <h4>{{ $post->title }}</h4>
-                            </div>
-                            <div class="blog-info">
-                                <span>{{ $post->created_at->format('F d Y') }}</span>
-                            </div>
-                        </div>
-                        @if( $loop->even )
-                        <div class="blog-img hoverImg">
-                            <figure><img src="{{ asset('storage/'.$post->image) }}" alt="{{ $post->title }}"></figure>
-                        </div>
-                        @endif
-                    </a>
-                    @endforeach
-                </div>
-            </div>
+
+           {{ $posts->links('layouts.paginator') }}
         </div>
     </div>
+    <!--===== BLOG END =======-->
+
 @endsection
 

@@ -4,11 +4,13 @@ namespace App\Filament\Pages;
 
 use Dotswan\MapPicker\Fields\Map;
 use Filament\Forms;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Forms\Get;
 use Filament\Forms\Set;
 use Filament\Pages\SettingsPage;
+use Guava\FilamentIconPicker\Forms\IconPicker;
 
 class DetailSettings extends SettingsPage
 {
@@ -28,14 +30,73 @@ class DetailSettings extends SettingsPage
                     ->required(),
                 TextInput::make('officeAddress')
                     ->required(),
-                TextInput::make('poBox')
-                    ->required(),
+                Forms\Components\Repeater::make('socials')
+                    ->schema([
+                        TextInput::make('link')->required()->url(),
+                        Select::make('icon')
+                            ->required()
+                            ->searchable()
+                            ->options([
+                            'fa-facebook' => 'Facebook',
+                            'fa-twitter' => 'Twitter',
+                            'fa-instagram' => 'Instagram',
+                            'fa-linkedin' => 'LinkedIn',
+                            'fa-youtube' => 'YouTube',
+                            'fa-pinterest' => 'Pinterest',
+                            'fa-snapchat' => 'Snapchat',
+                            'fa-tumblr' => 'Tumblr',
+                            'fa-reddit' => 'Reddit',
+                            'fa-whatsapp' => 'WhatsApp',
+                            'fa-skype' => 'Skype',
+                            'fa-github' => 'GitHub',
+                            'fa-vimeo' => 'Vimeo',
+                            'fa-spotify' => 'Spotify',
+                            'fa-soundcloud' => 'SoundCloud',
+                            'fa-twitch' => 'Twitch',
+                            'fa-discord' => 'Discord',
+                            'fa-slack' => 'Slack',
+                            'fa-medium' => 'Medium',
+                            'fa-dribbble' => 'Dribbble',
+                            'fa-behance' => 'Behance',
+                            'fa-flickr' => 'Flickr',
+                            'fa-vine' => 'Vine',
+                            'fa-tiktok' => 'TikTok',
+                            'fa-weibo' => 'Weibo',
+                            'fa-renren' => 'Renren',
+                            'fa-vk' => 'VK',
+                            'fa-wechat' => 'WeChat',
+                            'fa-line' => 'Line',
+                            'fa-telegram' => 'Telegram',
+                            'fa-sketch' => 'Sketch',
+                            'fa-codepen' => 'CodePen',
+                            'fa-stack-overflow' => 'Stack Overflow',
+                            'fa-wordpress' => 'WordPress',
+                            'fa-blogger' => 'Blogger',
+                            'fa-quora' => 'Quora',
+                            'fa-amazon' => 'Amazon',
+                            'fa-ebay' => 'eBay',
+                            'fa-paypal' => 'PayPal',
+                            'fa-apple' => 'Apple',
+                            'fa-android' => 'Android',
+                            'fa-windows' => 'Windows',
+                            'fa-linux' => 'Linux',
+                            'fa-chrome' => 'Chrome',
+                            'fa-firefox' => 'Firefox',
+                            'fa-opera' => 'Opera',
+                            'fa-safari' => 'Safari',
+                            'fa-edge' => 'Microsoft Edge',
+                            'fa-internet-explorer' => 'Internet Explorer',
+                        ]),
+                        TextInput::make('help')->nullable(),
+                    ])
+                    ->columnSpanFull()
+                    ->columns(3),
+
                 Forms\Components\FileUpload::make('logo')
                     ->image()
                     ->required(),
                 Map::make('location')
                     ->label('Location')
-                    ->columnSpanFull()
                     ->afterStateUpdated(function (Get $get, Set $set, string|array|null $old, ?array $state): void {
                         $set('latitude', $state['lat']);
                         $set('longitude', $state['lng']);
