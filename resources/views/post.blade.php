@@ -52,92 +52,58 @@
                             <div class="share-area">
                                 <ul>
                                     <li><p class="font-ks fon-16 lineh-16 weight-600 color-29">Social Share:</p></li>
-                                    <li><a href="#" class="color-29"><i class="fa-brands fa-x-twitter"></i>
+                                    <li><a href="http://www.twitter.com/share?url={{ urlencode( route('post' , ['Post' => $post->slug]) ) }}" class="color-29"><i class="fa-brands fa-x-twitter"></i>
                                         </a></li>
-                                    <li><a href="#" class="color-29"><i class="fa-brands fa-facebook-f"></i></a></li>
-                                    <li><a href="#" class="color-29"><i class="fa-brands fa-instagram"></i></a></li>
+                                    <li><a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode( route('post' , ['Post' => $post->slug]) ) }}" class="color-29"><i class="fa-brands fa-facebook-f"></i></a></li>
                                 </ul>
                             </div>
                         </div>
-                        <div class="reply-section-area margin-b30 margin-t32">
-                            <div class="replyfleex-area">
-                                <div class="repl-boxarea">
-                                    <div class="replyimg">
-                                        <img src="assets/images/sectionimg/replyimg1.png" alt="">
-                                    </div>
-                                    <div class="reply-text">
-                                        <a href="#" class="color-29"><h1 class="font-lora font-20 lineh-20 weight-600 color-29 margin-b13">Matthew Larson</h1></a>
-                                        <a href="#" class="color-30"><p class="font-ks font-16 lineh-26 weight-500 color-30">08 May 2023</p></a>
-                                    </div>
-                                </div>
-                                <a href="#" class="color-30"><span class="font-ks font-16 weight-600 color-29 lineh-20"><i class="fa-solid fa-reply"></i>Reply</span></a>
-                            </div>
-                            <p class="font-ks font-16 lineh-26 weight-500 color-30 ">As a small business owner, I was struggling to identify the best growth strategies. Your Consulting Firm Name] provided game-changing insights that not only increased my revenue but also helped me optimize my operations. </p>
-                        </div>
 
-                        <div class="reply-section-area">
-                            <div class="replyfleex-area">
-                                <div class="repl-boxarea">
-                                    <div class="replyimg">
-                                        <img src="assets/images/sectionimg/replyiimg2.png" alt="">
-                                    </div>
-                                    <div class="reply-text">
-                                        <a href="#" class="color-29"><h1 class="font-lora font-20 lineh-20 weight-600 color-29 margin-b13">Sergio Daugherty</h1></a>
-                                        <a href="#" class="color-30"><p class="font-ks font-16 lineh-26 weight-500 color-30">08 Sep 2023</p></a>
-                                    </div>
-                                </div>
-                                <span class="font-ks font-16 weight-600 color-29 lineh-20"><i class="fa-solid fa-reply"></i>Reply</span>
-                            </div>
-                            <p class="font-ks font-16 lineh-26 weight-500 color-30 ">As a small business owner, I was struggling to identify the best growth strategies. Your Consulting Firm Name] provided game-changing insights that not only increased my revenue but also helped me optimize my operations. </p>
-                        </div>
+                        @include('layouts.comment' , ['comments' => $post->comments ])
 
-                        <div class="blogontact-section-area">
+                        <div class="blogontact-section-area" id="makeComment">
                             <h1 class="font-24 weight-600 color-29 font-lora margin-b">Leave a Reply</h1>
                             <p class="font-ks font-16 lineh-26 weight-500 color-30">Provide clear contact information, including phone number, email, and address.</p>
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="bloginput">
-                                        <input type="text" placeholder="First Name">
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-6">
-                                    <div class="bloginput">
-                                        <input type="text" placeholder="Last Name" class="font-ks">
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-6">
-                                    <div class="bloginput">
-                                        <input type="email" placeholder="Email" class="font-ks">
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-6">
-                                    <div class="bloginput">
-                                        <input type="number" placeholder="Phone" class="font-ks">
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-12">
-                                    <div class="bloginput">
-                                        <input type="text" placeholder="Subject" class="font-ks">
-                                    </div>
-                                </div>
-                                <div class="col-lg-12">
-                                    <div class="bloginput">
-                                        <textarea cols="30" rows="10" placeholder="Message" class="font-ks"></textarea>
-                                    </div>
-                                </div>
-                                <div class="col-lg-12 text-right">
-                                    <div class="textbtn">
-                                        <button type="submit" class="quitobtn font-ks font-16 lineh-16 weight-700 color text-right">Submit Now <span><i class="fa-solid fa-arrow-right"></i></span></button>
+                            <form action="{{ route('sendComment' , ['Post' => $post->slug]) }}" method="POST">
+                                @csrf
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="bloginput">
+                                            <input type="text" required name="first_name" value="{{ old('first_name') }}" placeholder="First Name">
+                                        </div>
                                     </div>
 
+                                    <div class="col-lg-6">
+                                        <div class="bloginput">
+                                            <input type="text" required name="last_name" value="{{ old('last_name') }}" placeholder="Last Name" class="font-ks">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <div class="bloginput">
+                                            <input type="email" required name="email" value="{{ old('email') }}" placeholder="Email" class="font-ks">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <div class="bloginput">
+                                            <input type="number" required name="phone" value="{{ old('phone') }}" placeholder="Phone" class="font-ks">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="bloginput">
+                                            <textarea cols="30" required name="message" rows="10" placeholder="Message" class="font-ks">{{ old('message') }}</textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 text-right">
+                                        <div class="textbtn">
+                                            <button type="submit" class="quitobtn font-ks font-16 lineh-16 weight-700 color text-right">Submit Now <span><i class="fa-solid fa-arrow-right"></i></span></button>
+                                        </div>
+
+                                    </div>
                                 </div>
-                            </div>
+                            </form>
                         </div>
-
                     </div>
                 </div>
             </div>

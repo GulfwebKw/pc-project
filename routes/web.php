@@ -51,3 +51,22 @@ Route::post('/contact-us', function (\Illuminate\Http\Request $request) {
     ]);
     return redirect()->back()->with('success', 'Your message has been sent.');
 })->name('sendContactUs');
+
+Route::post('/article/{Post:slug}/comment', function (\Illuminate\Http\Request $request,\App\Models\Post $Post) {
+    $request->validate([
+        'message' => 'required|string',
+        'phone' => 'required',
+        'email' => 'required|email',
+        'last_name' => 'required|string',
+        'first_name' => 'required|string',
+    ]);
+    \App\Models\Comment::query()->create([
+        'first_name' => $request->get('first_name'),
+        'last_name' => $request->get('last_name'),
+        'phone' => $request->get('phone'),
+        'email' => $request->get('email'),
+        'message' => $request->get('message'),
+        'post_id' => $Post->id,
+    ]);
+    return redirect()->back()->with('success', 'Your comment has been sent.');
+})->name('sendComment');
