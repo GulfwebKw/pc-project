@@ -124,7 +124,7 @@
                                 </li>
                                 <li><a href="#" class="font-ks font-16 weight-500 color">Contact us <span><i class="fa-solid fa-angle-down"></i></span></a>
                                     <ul>
-                                        <li><a href="career.html" class="font-ks font-16 weight-500 color">Careers</a></li>
+                                        <li><a href="{{ route('contactUs') }}" class="font-ks font-16 weight-500 color">Careers</a></li>
                                         <li><a href="{{ route('contactUs') }}" class="font-ks font-16 weight-500 color">Contact us</a></li>
                                     </ul>
                                 </li>
@@ -133,7 +133,7 @@
 
                         <div class="contact-3 d-lg-block d-none">
                             <div class="shecdule-btn1">
-                                <a href="contact1.html" class="font-ks font-16 lineh-16 color weight-700 shedule-btn2">Schedule Consulation <span><i class="fa-solid fa-arrow-right"></i></span></a>
+                                <a href="{{ route('contactUs') }}" class="font-ks font-16 lineh-16 color weight-700 shedule-btn2">Schedule Consulation <span><i class="fa-solid fa-arrow-right"></i></span></a>
                             </div>
                         </div>
                     </div>
@@ -222,7 +222,7 @@
             </li>
             <li><a href="#" class="font-ks font-16 weight-00 color">Contact us</a>
                 <ul class="sub-menu">
-                    <li><a href="career.html" class="font-ks font-16 weight-500 color">Career </a></li>
+                    <li><a href="{{ route('contactUs') }}" class="font-ks font-16 weight-500 color">Career </a></li>
                     <li><a href="{{ route('contactUs') }}" class="font-ks font-16 weight-500 color">Contact us </a></li>
                 </ul>
             </li>
