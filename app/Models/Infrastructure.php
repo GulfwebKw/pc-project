@@ -12,11 +12,8 @@ use Illuminate\Support\Carbon;
  * @property string $title
  * @property string $slug
  * @property string $icon
- * @property string $subTitle
  * @property string $content
- * @property string $template
- * @property string $image1
- * @property string $image2
+ * @property string $image
  * @property bool $is_active
  * @property int $ordering
  * @property Carbon $created_at
@@ -30,11 +27,8 @@ class Infrastructure extends Model
         'title',
         'slug',
         'icon',
-        'subTitle',
         'content',
-        'template',
-        'image1',
-        'image2',
+        'image',
         'is_active',
         'ordering',
     ];

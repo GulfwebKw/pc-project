@@ -28,29 +28,16 @@ class InfrastructureResource extends Resource
             ->schema([
                 TextInput::make('title')
                     ->required(),
-                TextInput::make('subTitle')
-                    ->nullable(),
                 \Mohamedsabil83\FilamentFormsTinyeditor\Components\TinyEditor::make('content')
                     ->columnSpan(2)
                     ->required(),
-                RadioButtonImage::make('template')
-                    ->columnSpan(2)
-                    ->options([
-                        'rr' => asset('assets/images/admin/rr.png'),
-                        'lr' => asset('assets/images/admin/lr.png'),
-                        'll' => asset('assets/images/admin/ll.png'),
-                        'rl' => asset('assets/images/admin/rl.png'),
-                    ])
-                    ->required(),
-                Forms\Components\FileUpload::make('image1')
+                Forms\Components\FileUpload::make('image')
                     ->image()
                     ->imageEditor()
                     ->required(),
-                Forms\Components\FileUpload::make('image2')
+                Forms\Components\FileUpload::make('icon')
                     ->image()
                     ->imageEditor()
-                    ->nullable(),
-                IconPicker::make('icon')
                     ->required(),
                 Forms\Components\Checkbox::make('is_active')
                     ->inline(),
