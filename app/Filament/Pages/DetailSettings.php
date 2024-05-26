@@ -94,6 +94,7 @@ class DetailSettings extends SettingsPage
 
                 Forms\Components\FileUpload::make('logo')
                     ->image()
+                    ->directory(now()->format('Y/m/d'))
                     ->required(),
                 Map::make('location')
                     ->label('Location')

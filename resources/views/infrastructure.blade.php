@@ -27,7 +27,7 @@
                             {!! nl2br($infrastructure->content) !!}
                         </div>
                         <div class="row margin-t32">
-                            @foreach(collect($navbar_infrastructures)->take(2) as $navbar_infrastructure)
+                            @foreach(collect($navbar_infrastructures)->random()->take(2) as $navbar_infrastructure)
                                 <div class="col-lg-6 col-md-6 aos-init aos-animate" data-aos="fade-up" data-aos-duration="800">
                                     <a href="{{ route('infrastructure' , ['Infrastructure' => $navbar_infrastructure->slug]) }}">
                                         <div class="service4-boxarea5 text-center margin-b24">
@@ -46,19 +46,20 @@
                 </div>
 
                 <div class="col-lg-4">
-                    <div class="serviceour-area">
-                        <h1 class="font-lora font-24 lineh-24 weight-600 color-29 margin-b24">Our Services</h1>
-                        @foreach($navbar_infrastructures as $navbar_infrastructure)
-                            <div class="singlepalnning-area margin-b20">
-                                <a href="{{ route('infrastructure' , ['Infrastructure' => $navbar_infrastructure->slug]) }}" class="font-18 font-ks lineh-18 weight-600 color-29 ts">{{ $navbar_infrastructure->title }}</a>
-                                <span><i class="fa-solid fa-angle-right ts"></i></span>
-                            </div>
-                        @endforeach
-                    </div>
+{{--                    <div class="serviceour-area">--}}
+{{--                        <h1 class="font-lora font-24 lineh-24 weight-600 color-29 margin-b24">Our Services</h1>--}}
+{{--                        @foreach($navbar_infrastructures as $navbar_infrastructure)--}}
+{{--                            <div class="singlepalnning-area margin-b20">--}}
+{{--                                <a href="{{ route('infrastructure' , ['Infrastructure' => $navbar_infrastructure->slug]) }}" class="font-18 font-ks lineh-18 weight-600 color-29 ts">{{ $navbar_infrastructure->title }}</a>--}}
+{{--                                <span><i class="fa-solid fa-angle-right ts"></i></span>--}}
+{{--                            </div>--}}
+{{--                        @endforeach--}}
+{{--                    </div>--}}
 
 
                     <form method="POST" action="{{ route('sendContactUs') }}">
                         @csrf
+                        <input type="hidden" value="Contact US IN Infrastructure" name="subject">
                         <div class="quito-contact">
                             <h1 class="font-24 lineh-24 weight-600 color-29  font-lora margin-b20">Get A Free Quote</h1>
                             <div class="row">

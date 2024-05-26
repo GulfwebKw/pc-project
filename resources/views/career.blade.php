@@ -1,12 +1,12 @@
 @extends('layouts.base')
 
 @section('title')
-    Contact us
+    Career
 @endsection
 
 
 @section('breadcrumb')
-    <span><i class="fa-solid fa-angle-right"></i></span> Contact
+    <span><i class="fa-solid fa-angle-right"></i></span> Career
 @endsection
 
 @section('body')
@@ -15,28 +15,6 @@
     <!--===== CONTACT STARTS=======-->
     <div class="contcatinner2-scetio-area section-padding5">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-12 margin-t40">
-                    <div class="map-section-area">
-                        <div class="mapouter">
-                            <div class="gmap_canvas">
-                                <div id="map" class="gmap_iframe" style="height: 250px;" ></div>
-                                <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
-                                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.css" />
-                                <script>
-                                    var map = L.map('map').setView([{{ $setting->location['lat'] }}, {{ $setting->location['lng'] }}], 13);
-                                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                                        maxZoom: 19,
-                                    }).addTo(map);
-                                    L.marker([{{ $setting->location['lat'] }}, {{ $setting->location['lng'] }}]).addTo(map)
-                                        .bindPopup('{{ $setting->title }}')
-                                        .openPopup();
-                                </script>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div class="row">
                 <div class="col-lg-12 margin-t40">
                     <div class="contact2-all-contact contact2inner">
@@ -49,9 +27,9 @@
                             </div>
                             <div class="col-lg-6">
                                 <div class="contact2-maincontact">
-                                    <form method="POST" action="{{ route('sendContactUs') }}">
+                                    <form method="POST" action="{{ route('sendContactUs') }}" enctype="multipart/form-data">
                                         @csrf
-                                        <input type="hidden" value="Contact US" name="subject">
+                                        <input type="hidden" value="Career Request" name="subject">
                                         <div class="contact-from-area">
                                             @if(session()->has('success'))
                                                 <div class="alert alert-success">
@@ -85,6 +63,11 @@
                                                 <div class="col-lg-12">
                                                     <div class="textarea">
                                                         <textarea cols="30" required name="message" id="message" rows="10" placeholder="Message">{{ old('message') }}</textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-12">
+                                                    <div class="first-input">
+                                                        <input type="file" required name="file" placeholder="Attach CV">
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-12">
@@ -139,7 +122,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
     <!--===== CONTACT  END=======-->

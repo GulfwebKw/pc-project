@@ -47,7 +47,7 @@
                         <div class="border30 borderpadding"></div>
                         <div class="postsocial-area">
                             <div class="posttags">
-                                <h1 class="font-24 weight-600 color-29 font-lora ">Blog Comments (2)</h1>
+                                <h1 class="font-24 weight-600 color-29 font-lora ">Blog Comments ({{ $post->comments()->count() }})</h1>
                             </div>
                             <div class="share-area">
                                 <ul>
@@ -66,6 +66,11 @@
                             <p class="font-ks font-16 lineh-26 weight-500 color-30">Provide clear contact information, including phone number, email, and address.</p>
                             <form action="{{ route('sendComment' , ['Post' => $post->slug]) }}" method="POST">
                                 @csrf
+                                @if(session()->has('success'))
+                                    <div class="alert alert-success">
+                                        {{ session()->get('success') }}
+                                    </div>
+                                @endif
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="bloginput">

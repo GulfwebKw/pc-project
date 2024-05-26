@@ -36,6 +36,12 @@ class MessageResource extends Resource
                     ->content(fn($record) => $record->phone),
                 Forms\Components\Placeholder::make('email')
                     ->content(fn($record) => $record->email),
+                Forms\Components\Placeholder::make('subject')
+                    ->content(fn($record) => $record->subject),
+                Forms\Components\FileUpload::make('attachment')
+                    ->hidden(fn($record) => is_null($record->attachment ))
+                    ->downloadable()
+                    ->disabled(),
                 Forms\Components\Placeholder::make('ip')
                     ->content(fn($record) => $record->ip),
                 Forms\Components\Placeholder::make('created_at')

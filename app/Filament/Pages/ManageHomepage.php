@@ -57,6 +57,7 @@ class ManageHomepage extends SettingsPage
                                     ->required(),
                                 FileUpload::make('aboutUsImage')
                                     ->image()
+                                    ->directory(now()->format('Y/m/d'))
                                     ->imageEditor()
                                     ->required(),
                             ]),
@@ -72,6 +73,7 @@ class ManageHomepage extends SettingsPage
                                     ->required(),
                                 FileUpload::make('servicesImage')
                                     ->image()
+                                    ->directory(now()->format('Y/m/d'))
                                     ->imageEditor()
                                     ->required(),
                             ]),
@@ -99,6 +101,7 @@ class ManageHomepage extends SettingsPage
                                     ]),
                                 FileUpload::make('industriesImage')
                                     ->image()
+                                    ->directory(now()->format('Y/m/d'))
                                     ->imageEditor()
                                     ->required(),
                             ]),
@@ -117,6 +120,7 @@ class ManageHomepage extends SettingsPage
                                     ->required(),
                                 FileUpload::make('visionImage')
                                     ->image()
+                                    ->directory(now()->format('Y/m/d'))
                                     ->imageEditor()
                                     ->required(),
                             ]),
@@ -135,6 +139,7 @@ class ManageHomepage extends SettingsPage
                                             ->required(),
                                         FileUpload::make('image')
                                             ->image()
+                                            ->directory(now()->format('Y/m/d'))
                                             ->imageEditor()
                                             ->nullable(),
                                     ]),

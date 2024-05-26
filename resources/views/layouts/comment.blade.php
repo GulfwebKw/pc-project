@@ -3,7 +3,7 @@
         <div class="replyfleex-area">
             <div class="repl-boxarea">
                 <div class="replyimg">
-                    <img src="https://www.gravatar.com/avatar/{{md5(strtolower(trim($comment->email)))}}" alt="">
+                    <img style="border-radius: 50%" src="https://www.gravatar.com/avatar/{{md5(strtolower(trim($comment->email)))}}" alt="">
                 </div>
                 <div class="reply-text">
                     <a href="#" class="color-29"><h1 class="font-lora font-20 lineh-20 weight-600 color-29 margin-b13">

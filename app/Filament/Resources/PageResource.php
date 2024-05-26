@@ -34,6 +34,7 @@ class PageResource extends Resource
                     ->required(),
                 Forms\Components\FileUpload::make('image')
                     ->image()
+                    ->directory(now()->format('Y/m/d'))
                     ->imageEditor()
                     ->required(),
                 Forms\Components\Checkbox::make('is_active')

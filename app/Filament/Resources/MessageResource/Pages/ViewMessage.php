@@ -12,7 +12,13 @@ class ViewMessage extends ViewRecord
 
     protected function getHeaderActions(): array
     {
-        return [];
+        $action = [];
+        if ( $this->record?->attachment ) {
+            $action[] =
+                Actions\Action::make('download_attachment')
+                ->url(asset('storage/' . $this->record?->attachment));
+        }
+        return $action;
     }
 
 

@@ -844,7 +844,7 @@ a.theme-btn5:hover::after{
   transition: all .4S ease-in-out;
   box-shadow: 0px 2px 48px 0px rgba(35, 34, 34, 0.09);
   color: #000;
-  
+
 }
 a.theme-btn5:hover{
   color: #1A237E;
@@ -972,7 +972,7 @@ a.shedule-btn2:hover{
     width: 100%;
 }
 
-/* header menu */   
+/* header menu */
  .mega-menu-all {
   background: #fff;
   width: 1287px;
@@ -988,14 +988,14 @@ a.shedule-btn2:hover{
   padding: 30px;
   opacity: 0;
  }
- 
+
  .mega-dropdawn:hover .mega-menu-all {
   transform: translateY(0);
   transition: all.6s;
   visibility: visible;
   opacity: 1;
  }
- 
+
  .mega-menu-item-box::after {
   content: "";
   position: absolute;
@@ -1016,8 +1016,8 @@ a.shedule-btn2:hover{
   transition: all.4s;
   transform: scale(1);
  }
- 
- 
+
+
  .mega-menu-items-button a {
   /* width: 150px; */
   position: relative;
@@ -1029,7 +1029,7 @@ a.shedule-btn2:hover{
   text-align: center;
   line-height: 33px;
  }
- 
+
  .mega-menu-items-button {
   position: absolute;
   bottom: 0;
@@ -1040,14 +1040,14 @@ a.shedule-btn2:hover{
   transition: all.4s;
   z-index: 99;
  }
- 
+
  .mega-menu-item-box {
   border-radius: 5px;
   cursor: pointer;
   position: relative;
   box-shadow: 0px 4px 50px 0px rgba(0, 0, 0, 0.08);
  }
- 
+
  .mega-menu-item-box:hover .mega-menu-items-button {
   bottom: 70px;
   visibility: visible;
@@ -1362,7 +1362,7 @@ img.elementor1 {
   position: absolute;
   top: 0;
   left: 0;
-  
+
 }
 
 img.elementor2 {
@@ -1510,7 +1510,7 @@ a.unlock-btn {
 }
  a.unlock-btn:hover{
   color: #044E7C;
-} 
+}
 a.unlock-btn::after{
   position: absolute;
   content: "";
@@ -2082,7 +2082,7 @@ a.shedulebtn3 {
   display: inline-block;
   transition: all .4s;
   border: 1px solid  #EB7C3A;
-  
+
 }
 
 a.shedulebtn3:hover {
@@ -2596,7 +2596,7 @@ img.header9 {
     top: 30%;
     left: -57px;
     transition: all .4s ease-in-out;
-} 
+}
 .otherstype11 {
   border-radius: 2px;
   background: #FFF;
@@ -2607,7 +2607,7 @@ img.header9 {
   top: 10%;
   right: -200px;
   transition: all .4s ease-in-out;
-} 
+}
 .shap1area{
   /* clip-path: polygon(51% 0, 86% 25%, 88% 73%, 51% 100%, 14% 74%, 13% 27%); */
   position: relative;
@@ -3632,7 +3632,7 @@ button#pills-profile-tab {
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
-  line-height: 16px; 
+  line-height: 16px;
 }
 
 button#pills-profile-tab:hover {
@@ -3647,8 +3647,8 @@ button#pills-home-tab {
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
-  line-height: 16px; 
- 
+  line-height: 16px;
+
 }
 
 button#pills-home-tab:hover {
@@ -3663,7 +3663,7 @@ button#pills-contact-tab {
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
-  line-height: 16px; 
+  line-height: 16px;
 }
 button#pills-contact-tab:hover{
   text-decoration: underline;
@@ -4300,7 +4300,7 @@ img.elementoe5 {
   background-image: url(../images/background/service-benefits-bacground.png);
   background-repeat: no-repeat;
   background-size: cover;
-  
+
 }
 .service-taxs-header h1 {
   padding: 0 330px;
@@ -4507,7 +4507,7 @@ a.laearnmore2{
   transition: all .4s ease-in-out;
 }
 a.laearnmore2:hover{
-  color: #0C161D; 
+  color: #0C161D;
   transition: all .4s ease-in-out;
 }
 a.laearnmore2:hover span svg{
@@ -4812,8 +4812,8 @@ button.quitobtn:hover{
   transition: all .4s ease-in-out;
 }
 .serviceauthior-area img {
-  width: 100%;
-  height: 100%;
+  /*width: 100%;*/
+  /*height: 100%;*/
   object-fit: cover;
 }
 
@@ -5009,7 +5009,7 @@ transform: translateY(-10px);
   transition: all .4s ease-in-out;
 }
 .service6bor-area6 a:hover svg{
-  transition: 
+  transition:
   all .4s ease-in-out;
   padding-left: 5px;
 }
@@ -5048,7 +5048,7 @@ img.elementors14 {
   position: absolute;
   content: "";
   border-radius:  4px;
-  background: #196C68;  
+  background: #196C68;
   top: 0;
   left:0;
   transition: all .4s ease-in-out;
@@ -5060,7 +5060,7 @@ img.elementors14 {
   position: absolute;
   content: "";
   border-radius: 0 4px 4px 0;
-  background: #196C68;  
+  background: #196C68;
   bottom: 0;
   right:0;
   transition: all .4s ease-in-out;
@@ -5350,7 +5350,7 @@ img.elmentors66 {
   opacity:0.3 ;
   transition: all .4s ease-in-out;
   z-index: 1;
-} 
+}
 .servicebene10-boxarea {
   position: relative;
   z-index: 1;
@@ -6274,14 +6274,14 @@ background: #080D06;
 }
 .progress-bar.html span{
   width: 95%;
-  } 
+  }
 .progress-bar.css span{
       width: 97%;
       }
-      
+
 .progress-bar.javascript span{
           width: 94%;
-          } 
+          }
 .about9-textarea {
     padding: 0 0 0 50px;
 }
@@ -6320,7 +6320,7 @@ img {}
     width: 100%;
     border-radius:  4px;
     transition: all .4s ease-in-out;
- 
+
     left: 0;
     bottom: 0;
     z-index: -1;
@@ -6517,7 +6517,7 @@ img.elementor6 {
 } */
  .backgroud-positions{
   position: relative;
-} 
+}
 
 /* homepage-2 counter */
 .counter2-section-area{
@@ -7431,7 +7431,7 @@ img.elemneotrs13 {
 }
 
 
-.pricing10-boxarea 
+.pricing10-boxarea
 ul li span {
   height: 20px;
   width: 20px;
@@ -8021,7 +8021,7 @@ img.manimages10 {
     top: 7px;
 }
 .polugonimages{
-  filter: brightness(0) invert(1);  
+  filter: brightness(0) invert(1);
 }
 img.polugonimages {
   position: absolute;
@@ -9556,7 +9556,7 @@ a.contact3.contactboredrbtn {
   background: #343E53;
   color: #fff;
   font-size: 16px;
-  
+
 }
 .input-5area textarea{
   width: 100%;
@@ -9644,7 +9644,7 @@ iframe.gmap_iframe {
 }
 img.elementors3{
   position: absolute ;
-  top: 0; 
+  top: 0;
   left: 0;
 }
 button.button13.positionbtn {position: relative;left: 0;margin-top: 20px;}
@@ -10322,7 +10322,7 @@ span.current {
 .client-author-area:hover {
   transform: translateY(-10px);
   transition: all .4s ease-in-out;
- 
+
 }
 .client-icon {
   background: #DCE4EA;
@@ -10406,7 +10406,7 @@ button.accordion-button.collapsed {
  .accordion-button:not(.collapsed){
   border-radius: 2px;
 background: var(--main-color, #1D2940);
-} 
+}
 .accordion-button:not(.collapsed){
 color: #fff;
 font-family: 'Lora', serif;
@@ -10768,7 +10768,7 @@ ul.pagination li a:hover {
 .peragraph-pera:hover p {
 color: #fff;
 transition: all .4s ease-in-out;
-} 
+}
 .secrch-areacase span {
     position: absolute;
     right: 0;
@@ -11402,7 +11402,7 @@ a.contactcta10 {
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
-  
+
 }
 .cta10-section-area::after{
   position: absolute;
@@ -12537,7 +12537,7 @@ img.elementorimg74 {
   margin-top: 25px;
   overflow: hidden;
   position: relative;
-  
+
 }
 .progress-bar3 {
   background: #ddd;

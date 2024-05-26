@@ -105,7 +105,7 @@
                                     </ul>
                                 </li>
                                 <li @if(request()->routeIs('services'))  class="active" @endif>
-                                    <a class="font-ks font-16 weight-500 color" href="{{ route('services') }}">Services</a>
+                                    <a class="font-ks font-16 weight-500 color" href="{{ route('services') }}">Services <span><i class="fa-solid fa-angle-down"></i></span></a>
                                     <ul class="dropdown-padding">
                                         @foreach($navbar_services as $navbar_service)
                                             <li>
@@ -124,7 +124,7 @@
                                 </li>
                                 <li><a href="#" class="font-ks font-16 weight-500 color">Contact us <span><i class="fa-solid fa-angle-down"></i></span></a>
                                     <ul>
-                                        <li><a href="{{ route('contactUs') }}" class="font-ks font-16 weight-500 color">Careers</a></li>
+                                        <li><a href="{{ route('career') }}" class="font-ks font-16 weight-500 color">Careers</a></li>
                                         <li><a href="{{ route('contactUs') }}" class="font-ks font-16 weight-500 color">Contact us</a></li>
                                     </ul>
                                 </li>
@@ -222,7 +222,7 @@
             </li>
             <li><a href="#" class="font-ks font-16 weight-00 color">Contact us</a>
                 <ul class="sub-menu">
-                    <li><a href="{{ route('contactUs') }}" class="font-ks font-16 weight-500 color">Career </a></li>
+                    <li><a href="{{ route('career') }}" class="font-ks font-16 weight-500 color">Career </a></li>
                     <li><a href="{{ route('contactUs') }}" class="font-ks font-16 weight-500 color">Contact us </a></li>
                 </ul>
             </li>
@@ -360,9 +360,9 @@
             <div class="col-lg-12">
                 <div class="contcat5-section5-area section-padding15">
                     <div class="row">
-                        <div class="col-lg-2">
+                        <div class="col-lg-4">
                             <div class="contact5-logo5-text">
-                                <img src="{{ asset('storage/'.$setting->logo) }}"  alt="{{ $setting->title }}">
+                                <img src="{{ asset('storage/'.$setting->logo) }}" style="max-width: 230px;"  alt="{{ $setting->title }}">
                                 <div class="icon-social-links mt-4">
                                     <ul>
                                         @foreach($setting->socials as $social)
@@ -373,7 +373,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-md-6">
+                        <div class="col-lg-4 col-md-6">
                             <div class="about-5-links">
                                 <h1 class="font-20 font-lora weight-600 lineh-20 color">Quick Link</h1>
                                 <ul>
@@ -389,7 +389,7 @@
                             </div>
                         </div>
 
-                        <div class="col-lg-3 col-md-6">
+                        <div class="col-lg-4 col-md-6">
                             <div class="contact-footer heightleft">
                                 <h1 class="font-20 color lineh-20 font-lora margin-b24 weight-600">Contact Us</h1>
                                 <div class="email4">
@@ -407,19 +407,19 @@
                             </div>
                         </div>
 
-                        <div class="col-lg-4">
-                            <div class="contactcta5-form">
-                                <div class="contact6-ctafrom">
-                                    <h1 class="font-20 font-lora weight-600 lineh-20 color">Subscribe Our Newsletter</h1>
-                                    <form>
-                                        <input type="text" placeholder="Enter Your email">
-                                        <div class="contact5-btn15">
-                                            <button class="font-ks font-16 lineh-16 weight-700 color contcat6" type="submit">Submit Now <span><i class="fa-solid fa-arrow-right"></i></span></button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
+{{--                        <div class="col-lg-4">--}}
+{{--                            <div class="contactcta5-form">--}}
+{{--                                <div class="contact6-ctafrom">--}}
+{{--                                    <h1 class="font-20 font-lora weight-600 lineh-20 color">Subscribe Our Newsletter</h1>--}}
+{{--                                    <form>--}}
+{{--                                        <input type="text" placeholder="Enter Your email">--}}
+{{--                                        <div class="contact5-btn15">--}}
+{{--                                            <button class="font-ks font-16 lineh-16 weight-700 color contcat6" type="submit">Submit Now <span><i class="fa-solid fa-arrow-right"></i></span></button>--}}
+{{--                                        </div>--}}
+{{--                                    </form>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
                     </div>
                 </div>
                 <div class="border10"></div>

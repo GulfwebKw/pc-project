@@ -37,6 +37,7 @@ class PostResource extends Resource
                     ->required(),
                 Forms\Components\FileUpload::make('image')
                     ->image()
+                    ->directory(now()->format('Y/m/d'))
                     ->imageEditor()
                     ->nullable(),
                 Forms\Components\Checkbox::make('is_active')

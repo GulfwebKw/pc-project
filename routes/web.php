@@ -40,13 +40,22 @@ Route::get('/news-and-articles', function (\App\Models\Post $Post) {
 
 
 Route::view('/contact-us', 'contactUs')->name('contactUs');
+Route::view('/career', 'career')->name('career');
 Route::post('/contact-us', function (\Illuminate\Http\Request $request) {
+    $path = null;
+    if ( $request->hasFile('file') ){
+        $path =now()->format('Y/m/d');
+        $path = $request->file('file')->store('public/' .$path );
+        $path = ltrim($path , 'public/');
+    }
     \App\Models\Message::query()->create([
         'first_name' => $request->get('first_name'),
         'last_name' => $request->get('last_name'),
         'phone' => $request->get('phone'),
         'email' => $request->get('email'),
         'message' => $request->get('message'),
+        'attachment' => $path,
+        'subject' => $request->get('subject'),
         'ip' => $request->ip(),
     ]);
     return redirect()->back()->with('success', 'Your message has been sent.');

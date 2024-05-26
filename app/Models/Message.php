@@ -14,6 +14,8 @@ use Illuminate\Support\Carbon;
  * @property string $email
  * @property string $ip
  * @property string $message
+ * @property string $attachment
+ * @property string $subject
  * @property bool $is_read
  * @property Carbon $created_at
  * @property Carbon $updated_at
@@ -27,6 +29,8 @@ class Message extends Model
         'phone',
         'email',
         'message',
+        'attachment',
+        'subject',
         'ip',
         'is_read',
     ];
