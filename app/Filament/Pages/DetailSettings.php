@@ -123,7 +123,19 @@ class DetailSettings extends SettingsPage
                     ->extraControl([
                         'zoomDelta'           => 1,
                         'zoomSnap'            => 2,
-                    ])
+                    ]),
+
+                Forms\Components\Checkbox::make('activeBlueButton')
+                    ->label('Active blue button in navbar'),
+
+                TextInput::make('blueButtonText')
+                    ->required(),
+                TextInput::make('blueButtonURL')
+                    ->url()
+                    ->required(),
+                TextInput::make('sendMessageTitleInPages')
+                    ->label('Send message title in pages')
+                    ->required(),
             ]);
     }
 }

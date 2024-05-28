@@ -3,6 +3,26 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
+
+    return '<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PC Project</title>
+</head>
+
+<body style="background-color: #1D2940; display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh; color:white; overflow:hidden">
+    <img src="https://project-kuwait.com/storage/2024/05/26/01HYVAW2J3AA9S543NCC4Z24Z2.png" width="200px" >
+    <h1 style="font-size: 4rem;">COMING SOON</h1>
+</body>
+
+</html>
+';
+});
+
+Route::get('/home', function () {
     return view('welcome' , [
         'home' => app(\App\Settings\HomepageSettings::class),
         'posts' => \App\Models\Post::query()

@@ -61,7 +61,7 @@
                         @csrf
                         <input type="hidden" value="Contact US In Service" name="subject">
                         <div class="quito-contact">
-                            <h1 class="font-24 lineh-24 weight-600 color-29  font-lora margin-b20">Get A Free Quote</h1>
+                            <h1 class="font-24 lineh-24 weight-600 color-29  font-lora margin-b20">{{ $setting->sendMessageTitleInPages  }}</h1>
                             <div class="row">
                                 <div class="col-lg-12">
                                     @if(session()->has('success'))

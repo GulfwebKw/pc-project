@@ -10,6 +10,7 @@ class HomepageSettings extends Settings
     public string $headerSubTitle;
     public string $headerContent;
     public string $headerButtonLabel;
+    public string $HomePageHeaderImage;
     public string $headerButtonLink;
     public string $aboutUsTitle;
     public string $aboutUsSubTitle;
@@ -33,6 +34,9 @@ class HomepageSettings extends Settings
     public string $visionButtonLabel;
     public string $visionButtonLink;
     public string $visionImage;
+    public string $HomePageContactUsTitle;
+    public string $HomePageContactUsSubTitle;
+    public string $HomePageContactUsContent;
     public array $comments ;
     public static function group(): string
     {

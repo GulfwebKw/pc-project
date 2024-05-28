@@ -14,6 +14,10 @@ class DetailSettings extends Settings
     public array $location ;
     public array $socials ;
     public string $logo ;
+    public bool $activeBlueButton ;
+    public string $blueButtonText ;
+    public string $blueButtonURL ;
+    public string $sendMessageTitleInPages ;
     public static function group(): string
     {
         return 'default';

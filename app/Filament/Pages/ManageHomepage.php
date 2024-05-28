@@ -39,6 +39,18 @@ class ManageHomepage extends SettingsPage
                                 \Mohamedsabil83\FilamentFormsTinyeditor\Components\TinyEditor::make('headerContent')
                                     ->columnSpanFull()
                                     ->required(),
+                                FileUpload::make('HomePageHeaderImage')
+                                    ->image()
+                                    ->directory(now()->format('Y/m/d'))
+                                    ->imageEditor()
+                                    ->required(),
+
+                                TextInput::make('HomePageContactUsTitle')
+                                    ->required(),
+                                TextInput::make('HomePageContactUsSubTitle')
+                                    ->required(),
+                                Forms\Components\Textarea::make('HomePageContactUsContent')
+                                    ->required(),
                             ]),
                         Tabs\Tab::make('About Us')
                             ->columns(2)

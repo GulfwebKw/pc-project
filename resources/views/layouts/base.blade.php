@@ -131,11 +131,13 @@
                             </ul>
                         </div>
 
+                        @if($setting->activeBlueButton)
                         <div class="contact-3 d-lg-block d-none">
                             <div class="shecdule-btn1">
-                                <a href="{{ route('contactUs') }}" class="font-ks font-16 lineh-16 color weight-700 shedule-btn2">Schedule Consulation <span><i class="fa-solid fa-arrow-right"></i></span></a>
+                                <a href="{{ $setting->blueButtonURL  }}" class="font-ks font-16 lineh-16 color weight-700 shedule-btn2">{{ $setting->blueButtonText  }} <span><i class="fa-solid fa-arrow-right"></i></span></a>
                             </div>
                         </div>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -326,30 +328,30 @@
 
 
 
-@hasSection('footerConcat')
-    <!--===== CTA STARST=======-->
-    <div class="cta5-section-area section-padding4">
-        <img src="{{ asset('assets/images/elementor/elementor72.png') }}" alt="" class="elementors72">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <div class="cta5-auhtor6-area">
-                        <h1 class="font-lora font-48 lineh-52 color weight-600 margin-b text-capitalize">Get expert Law advice on criminal strategies</h1>
-                        <p class="font-ks font-16 lineh-26 weight-500 color-21">We believe that informed clients make better Law decisions. As part of our service, we'll provide educational resources and workshops to help.</p>
-                    </div>
-                </div>
-                <div class="col-lg-2"></div>
-                <div class="col-lg-4">
-                    <div class="cta5-btn5-sexction">
-                        <a href="{{ route('contactUs') }}" class="theme6-btn6 bakgrnd5 font-ks lineh-16 weight-700 color font-16">Get Law Advice <span><i class="fa-solid fa-arrow-right"></i></span></a>
-                        <a href="{{ route('contactUs') }}" class="theme6-btn6 backgrnd6 font-ks lineh-16 weight-700 color-29 font-16">Contact Us <span><i class="fa-solid fa-arrow-right"></i></span></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <img src="{{ asset('assets/images/elementor/elementor72.png') }}" alt="" class="elementors73">
-    </div>
-@endif
+{{--@hasSection('footerConcat')--}}
+{{--    <!--===== CTA STARST=======-->--}}
+{{--    <div class="cta5-section-area section-padding4">--}}
+{{--        <img src="{{ asset('assets/images/elementor/elementor72.png') }}" alt="" class="elementors72">--}}
+{{--        <div class="container">--}}
+{{--            <div class="row align-items-center">--}}
+{{--                <div class="col-lg-6">--}}
+{{--                    <div class="cta5-auhtor6-area">--}}
+{{--                        <h1 class="font-lora font-48 lineh-52 color weight-600 margin-b text-capitalize">Get expert Law advice on criminal strategies</h1>--}}
+{{--                        <p class="font-ks font-16 lineh-26 weight-500 color-21">We believe that informed clients make better Law decisions. As part of our service, we'll provide educational resources and workshops to help.</p>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--                <div class="col-lg-2"></div>--}}
+{{--                <div class="col-lg-4">--}}
+{{--                    <div class="cta5-btn5-sexction">--}}
+{{--                        <a href="{{ route('contactUs') }}" class="theme6-btn6 bakgrnd5 font-ks lineh-16 weight-700 color font-16">Get Law Advice <span><i class="fa-solid fa-arrow-right"></i></span></a>--}}
+{{--                        <a href="{{ route('contactUs') }}" class="theme6-btn6 backgrnd6 font-ks lineh-16 weight-700 color-29 font-16">Contact Us <span><i class="fa-solid fa-arrow-right"></i></span></a>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--        <img src="{{ asset('assets/images/elementor/elementor72.png') }}" alt="" class="elementors73">--}}
+{{--    </div>--}}
+{{--@endif--}}
 
 
 

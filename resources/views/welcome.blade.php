@@ -35,9 +35,11 @@
                                 <img src="{{ asset('assets/images/background/position-bg.png') }}" alt="" class="keyframe3" >
                                 <img src="{{ asset('assets/images/elementor/elementor73.png') }}" alt="" class="elementors82 keyframe4">
                             </div>
+                            @if($home->HomePageHeaderImage)
                             <div class="ima1-4">
-                                <img src="{{ asset('assets/images/sectionimg/welcome4img.png') }}" alt="" data-aos="zoom-out-up" data-aos-duration="1200">
+                                <img src="{{ asset('storage/'.$home->HomePageHeaderImage) }}" alt="" data-aos="zoom-out-up" data-aos-duration="1200">
                             </div>
+                            @endif
                             <div class="special-1">
                                 <img src="{{ asset('assets/images/icons/special1.png') }}" alt="" class="aniamtion-key-1">
                             </div>
@@ -289,9 +291,11 @@
             <div class="row align-items-center">
                 <div class="col-lg-6" data-aos="fade-right" data-aos-duration="800">
                     <div class="contcat5-textarea5">
-                        <span class="about3span font-ks lineh-16 font-16 weight-600 color-29 d-inline-block margin-b24">Contact Us</span>
-                        <h1 class="font-lora font-48 lineh-56 weight-600 color-29 margin-b20 clienth2">Contact Us for Expert Legal Guidance</h1>
-                        <p class="font-ks font-16 weight-500 lineh-26 color-30">Provide professional advice and guidance on legal matters, helping clients understand their rights, obligations, and potential courses.</p>
+                        @if($home->HomePageContactUsSubTitle)
+                        <span class="about3span font-ks lineh-16 font-16 weight-600 color-29 d-inline-block margin-b24">{{ $home->HomePageContactUsSubTitle }}</span>
+                        @endif
+                        <h1 class="font-lora font-48 lineh-56 weight-600 color-29 margin-b20 clienth2">{{ $home->HomePageContactUsTitle }}</h1>
+                        <p class="font-ks font-16 weight-500 lineh-26 color-30">{!! nl2br($home->HomePageContactUsContent ) !!}</p>
                         <div class="phone7-textarea margin-t32" data-aos="fade-right" data-aos-duration="1000">
                             <div class="phone7-icon">
                                 <img src="{{ asset('assets/images/icons/phone8.png') }}" alt="">
