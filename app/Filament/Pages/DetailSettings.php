@@ -126,7 +126,7 @@ class DetailSettings extends SettingsPage
                     ]),
 
                 Forms\Components\Checkbox::make('activeBlueButton')
-                    ->label('Active blue button in navbar'),
+                    ->label('Active blue button in navbar') ,
 
                 TextInput::make('blueButtonText')
                     ->required(),
