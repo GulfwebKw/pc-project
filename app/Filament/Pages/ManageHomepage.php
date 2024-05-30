@@ -43,7 +43,7 @@ class ManageHomepage extends SettingsPage
                                     ->image()
                                     ->directory(now()->format('Y/m/d'))
                                     ->imageEditor()
-                                    ->required(),
+                                    ->nullable(),
 
                                 TextInput::make('HomePageContactUsTitle')
                                     ->required(),

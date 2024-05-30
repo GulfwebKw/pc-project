@@ -10,7 +10,7 @@ class HomepageSettings extends Settings
     public string $headerSubTitle;
     public string $headerContent;
     public string $headerButtonLabel;
-    public string $HomePageHeaderImage;
+    public ?string $HomePageHeaderImage;
     public string $headerButtonLink;
     public string $aboutUsTitle;
     public string $aboutUsSubTitle;

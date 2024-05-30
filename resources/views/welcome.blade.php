@@ -11,7 +11,7 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6" data-aos="fade-right" data-aos-duration="1000">
-                    <div class="welcome4-textarea">
+                    <div class="welcome4-textarea pb-3">
                         @if( $home->headerSubTitle)
                             <span class="trust font-ks font-16 lineh-16 weight-600 color margin-b24 ">{{ $home->headerSubTitle }}</span>
                         @endif
@@ -28,7 +28,7 @@
                         @endif
                     </div>
                 </div>
-                <div class="col-lg-6" data-aos="fade-left" data-aos-duration="1000">
+                <div class="col-lg-6 @if(! $home->HomePageHeaderImage) d-none d-lg-block @endif" data-aos="fade-left" data-aos-duration="1000">
                     <div class="welcome4-positionalarea">
                         <div class="imag4">
                             <div class="position-bg ">
@@ -39,6 +39,8 @@
                             <div class="ima1-4">
                                 <img src="{{ asset('storage/'.$home->HomePageHeaderImage) }}" alt="" data-aos="zoom-out-up" data-aos-duration="1200">
                             </div>
+                            @else
+                                <div class="ima1-4 d-none d-lg-block" style="min-height: 100vh;"></div>
                             @endif
                             <div class="special-1">
                                 <img src="{{ asset('assets/images/icons/special1.png') }}" alt="" class="aniamtion-key-1">
